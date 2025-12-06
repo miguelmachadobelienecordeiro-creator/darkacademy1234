@@ -2,57 +2,61 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Dashboard Dark Academy</title>
-<style>
-    body { background:#121212; color:#fff; font-family:Arial,sans-serif; }
-    #mode-buttons button { margin:5px; padding:10px 20px; border-radius:5px; border:none; cursor:pointer; background:#3a0a3a; color:#fff; }
-    #mode-container input, #mode-container select { display:block; margin:5px 0; padding:5px; width:200px; }
-    #mode-container button { padding:5px 10px; background:#550055; border:none; border-radius:5px; color:#fff; cursor:pointer; }
-    .rank-card { display:flex; align-items:center; margin:5px 0; padding:5px; background:#1a001a; border-radius:5px; cursor:pointer; }
-    .rank-pic { width:40px; height:40px; border-radius:50%; margin-right:10px; }
-    .rank-info span { display:block; }
-    #validation-container { margin-top:20px; }
-    #chat-container { display:none; position:fixed; bottom:0; right:0; background:#1a001a; padding:10px; width:300px; border-radius:10px; }
-    #chat-messages { height:150px; overflow-y:auto; background:#2a002a; padding:5px; margin-bottom:5px; }
-    #chat-input { width:100%; padding:5px; }
-    #chat-container button { padding:5px 10px; margin-top:5px; background:#550055; border:none; border-radius:5px; color:#fff; cursor:pointer; }
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Academy Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js"></script>
+<script src="script.js" defer></script>
 </head>
 <body>
+    <div class="top-bar">
+        <h1>Dark Academy</h1>
+        <a id="discord-link" href="#" target="_blank">
+            <img src="discord-icon.png" alt="Discord" class="discord-icon">
+        </a>
+    </div>
 
-<h1 id="welcome">Bem-vindo!</h1>
-<img id="profile-pic" src="default-profile.png" width="50" height="50" style="border-radius:50%;" />
-<button onclick="editProfile()">Editar Perfil</button>
+    <div class="profile-section">
+        <img id="profile-pic" src="default-profile.png" class="profile-pic">
+        <span id="welcome">Bem-vindo, Usuário</span>
+        <button onclick="editProfile()" class="btn futuristic-btn">Editar Perfil</button>
+    </div>
 
-<div id="mode-buttons">
-    <button onclick="showMode('bedwars')">BedWars</button>
-    <button onclick="showMode('fortnite')">Fortnite</button>
-    <button onclick="showMode('freefire')">Free Fire</button>
-    <button onclick="showMode('clashroyale')">Clash Royale</button>
-</div>
+    <div class="modes">
+        <button onclick="showMode('bedwars')" class="btn futuristic-btn">BedWars</button>
+        <button onclick="showMode('fortnite')" class="btn futuristic-btn">Fortnite</button>
+        <button onclick="showMode('freefire')" class="btn futuristic-btn">Free Fire</button>
+        <button onclick="showMode('clashroyale')" class="btn futuristic-btn">Clash Royale</button>
+    </div>
 
-<div id="mode-container"></div>
-<div id="notifications" style="position:fixed; top:10px; right:10px; width:250px;"></div>
+    <div id="mode-container" class="mode-container"></div>
 
-<h2>Rankings</h2>
-<div id="ranking-bedwars"><h3>BedWars</h3></div>
-<div id="ranking-fortnite"><h3>Fortnite</h3></div>
-<div id="ranking-freefire"><h3>Free Fire</h3></div>
-<div id="ranking-clashroyale"><h3>Clash Royale</h3></div>
+    <div id="notifications" class="notifications"></div>
 
-<div id="validation-container"></div>
+    <div class="rankings">
+        <div id="ranking-bedwars" class="ranking">
+            <h3>BedWars</h3>
+        </div>
+        <div id="ranking-fortnite" class="ranking">
+            <h3>Fortnite</h3>
+        </div>
+        <div id="ranking-freefire" class="ranking">
+            <h3>Free Fire</h3>
+        </div>
+        <div id="ranking-clashroyale" class="ranking">
+            <h3>Clash Royale</h3>
+        </div>
+    </div>
 
-<div id="chat-container">
-    <div>Chat com <span id="chat-with"></span></div>
-    <div id="chat-messages"></div>
-    <input type="text" id="chat-input" placeholder="Digite sua mensagem">
-    <button onclick="sendMessage()">Enviar</button>
-    <button onclick="closeChat()">Fechar Chat</button>
-</div>
+    <div id="validation-container" class="validation-container"></div>
 
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-<script src="script.js"></script>
-
+    <div id="chat-container" class="chat-container">
+        <h3>Chat com <span id="chat-with"></span></h3>
+        <div id="chat-messages" class="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+        <button onclick="sendMessage()" class="btn futuristic-btn">Enviar</button>
+        <button onclick="closeChat()" class="btn futuristic-btn">Fechar</button>
+    </div>
 </body>
 </html>
