@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dark Academy - Painel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="top-bar">
+    <img id="perfilFoto" class="profile-img">
+    <span id="perfilNome"></span>
+</div>
+
+<h2>Escolha o jogo</h2>
+
+<div class="menu-box">
+    <button onclick="showBedwars()">BedWars</button>
+    <button onclick="showFortnite()">Fortnite</button>
+</div>
+
+<div id="bedwarsForm" class="form-box" style="display:none;">
+    <h3>Registrar BedWars</h3>
+    <input id="bwPartidas" placeholder="Partidas Jogadas">
+    <input id="bwWins" placeholder="Vitórias">
+    <input id="bwKills" placeholder="Kills">
+    <button onclick="saveBedwars()">Salvar</button>
+    <button onclick="goRank()">Ir para ranking</button>
+</div>
+
+<div id="fortniteForm" class="form-box" style="display:none;">
+    <h3>Registrar Fortnite</h3>
+    <input id="fnPartidas" placeholder="Partidas Jogadas">
+    <input id="fnWins" placeholder="Vitórias">
+    <input id="fnModo" placeholder="Modo de jogo">
+    <button onclick="saveFortnite()">Salvar</button>
+    <button onclick="goRank()">Ir para ranking</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

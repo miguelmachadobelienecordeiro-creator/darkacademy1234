@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<title>Dark Academy - Cadastro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+  <div class="auth-container">
+    <a class="back" href="index.html">⮜ Voltar</a>
+    <h2>Criar Conta</h2>
+
+    <input id="newUser" type="text" placeholder="Usuário (ex: player01)" />
+    <input id="newPass" type="password" placeholder="Senha" />
+
+    <input id="newFotoUrl" placeholder="URL da imagem do perfil (opcional)" />
+    <div style="margin:6px 0">
+      <label class="small">Ou envie arquivo (opcional):</label><br>
+      <input id="newFotoFile" type="file" accept="image/*" />
+    </div>
+
+    <!-- chama a função do script.js que cria a conta -->
+    <button onclick="registerUser()">Cadastrar</button>
+
+    <p id="regMsg" class="small"></p>
+  </div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
